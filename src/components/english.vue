@@ -41,8 +41,8 @@ export default {
     return {
       step: 0,
       readTime: 30,
-      thinkTime: 1, //todo 60
-      speechTime: 1, //todo 180
+      thinkTime: 60, //todo 60
+      speechTime: 180, //todo 180
     };
   },
   methods: {

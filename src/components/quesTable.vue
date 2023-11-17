@@ -59,7 +59,7 @@ export default {
   methods: {
     nextStep() {
       let noComplete = this.list.list.some((i, index) => {
-        this.outArr[index] = 1; //todo
+        // this.outArr[index] = 1; //todo
         if (!this.outArr[index]) {
           return true;
         }

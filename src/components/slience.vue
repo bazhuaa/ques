@@ -19,7 +19,7 @@ export default {
   data() {
     this.timer = null;
     return {
-      time: 1, //todo 300
+      time: 300, //todo 300
       start: false,
     };
   },
