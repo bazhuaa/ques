@@ -28,7 +28,7 @@
             </tr>
             <tr>
               <th v-for="(head, headIndex) in list.thead">
-                <input v-model="outArr[index]" type="radio" :value="headIndex" class="radio" />
+                <input v-model="outArr[index]" type="radio" :value="headIndex + 1" class="radio" />
               </th>
 
               <!-- <td><input v-model="outArr[index]" type="radio" value="2" class="radio" /></td>

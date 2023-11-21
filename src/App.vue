@@ -64,7 +64,9 @@ export default {
   data() {
     return {
       step: 0,
-      userInfo: {},
+      userInfo: {
+        group: 2,
+      },
       list: [],
       ques01: {
         name: "SIAS",
@@ -198,6 +200,14 @@ export default {
     slience,
     breath,
   },
+  created() {
+    document.onkeydown = (e) => {
+      if (e.keyCode == 68 && e.ctrlKey) {
+        e.preventDefault();
+        this.step++;
+      }
+    };
+  },
   methods: {
     init() {
       this.step = 0;
@@ -241,6 +251,7 @@ export default {
 <style>
 #app {
   margin: 20px 300px;
+  margin-top: 100px;
 }
 body,
 html {
@@ -264,7 +275,7 @@ html {
   margin-bottom: 10px;
 }
 #app p {
-  text-align: left;
+  text-align: center;
   font-size: 24px;
   margin-bottom: 40px;
   line-height: 40px;

@@ -1,7 +1,7 @@
 <template>
   <div class="hello">
     <div v-if="step == 0">
-      <h1>你好，欢迎参加本实验</h1>
+      <h1 style="font-size: 50px">你好，欢迎参加本实验</h1>
       <h3 @click="step++" style="cursor: pointer">（点击进入实验程序）</h3>
     </div>
     <div v-if="step == 1">

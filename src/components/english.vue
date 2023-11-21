@@ -1,9 +1,9 @@
 <template>
-  <div class="hello">
+  <div class="eng">
     <div v-if="step == 0">
       <h1>全国英语演讲比赛</h1>
       <p>
-        指导语<br />
+        指导语：<br />
         下面，你有1分钟的时间准备一段关于“我理想的职业”主题的英文讲稿<br />
         倒计时结束后，将做3分钟的口头演讲，并接受现场专家的提问<br />
         专家将根据你的现场表现进行评分
@@ -79,4 +79,8 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.eng {
+  padding-top: 60px;
+}
+</style>
