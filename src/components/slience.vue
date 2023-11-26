@@ -4,10 +4,12 @@
     <p>
       指导语：<br />
       请您静坐5分钟，测量基础生理状态。<br />
-      请按下holter中间的按钮，并开始倒计时！
+      请按下holter中间的按钮，并“点击”倒计时！
     </p>
 
-    <button class="btn btn-info" @click="startTime" v-if="!start">开始倒计时</button>
+    <button class="btn btn-info" @click="startTime" v-if="!start">
+      开始倒计时
+    </button>
     <button class="btn btn-success" v-else>倒计时{{ time }}s</button>
   </div>
 </template>

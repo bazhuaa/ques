@@ -28,7 +28,12 @@
             </tr>
             <tr>
               <th v-for="(head, headIndex) in list.thead">
-                <input v-model="outArr[index]" type="radio" :value="headIndex + 1" class="radio" />
+                <input
+                  v-model="outArr[index]"
+                  type="radio"
+                  :value="headIndex + 1"
+                  class="radio"
+                />
               </th>
 
               <!-- <td><input v-model="outArr[index]" type="radio" value="2" class="radio" /></td>
@@ -40,7 +45,9 @@
         </tbody>
       </table>
     </div>
-    <button class="btn btn-info" @click="nextStep" type="normal">下一步</button>
+    <button class="btn btn-info" type="normal" @click="nextStep">
+      倒计时{{ time }}s
+    </button>
   </div>
 </template>
 
@@ -54,20 +61,35 @@ export default {
   data() {
     return {
       outArr: [],
+      timer: null,
+      time: 30,
     };
+  },
+  created() {
+    // 30秒
+    this.timer = setInterval(() => {
+      if (this.time == 0) {
+        this.nextStep();
+        clearInterval(this.timer);
+      }
+      this.time--;
+    }, 1000);
+  },
+  beforeDestroy() {
+    this.timer = null;
   },
   methods: {
     nextStep() {
-      let noComplete = this.list.list.some((i, index) => {
-        // this.outArr[index] = 1; //todo
-        if (!this.outArr[index]) {
-          return true;
-        }
-      });
-      if (noComplete) {
-        alert("还有未完成的选项");
-        return;
-      }
+      // let noComplete = this.list.list.some((i, index) => {
+      //   // this.outArr[index] = 1; //todo
+      //   if (!this.outArr[index]) {
+      //     return true;
+      //   }
+      // });
+      // if (noComplete) {
+      //   alert("还有未完成的选项");
+      //   return;
+      // }
       this.$emit("finish", {
         name: this.list.name,
         stage: this.title,

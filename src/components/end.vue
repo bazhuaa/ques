@@ -3,7 +3,13 @@
     <h1>实验结束，感谢您的参与！</h1>
     <p>请取下生理设备，填写被试单并领取被试费</p>
     <button @click="nextStep" class="btn btn-info">重新开始</button>
-    <button style="right: 5px; bottom: 5px; position: absolute" @click="output" class="btn">导出</button>
+    <button
+      style="right: 5px; bottom: 5px; position: absolute"
+      @click="output"
+      class="btn"
+    >
+      导出
+    </button>
   </div>
 </template>
 
@@ -37,6 +43,7 @@ export default {
         };
         list.forEach((l) => {
           l.list.forEach((ques, index) => {
+            console.log(l.stage + "-" + index, ques);
             obj[l.stage + "-" + index] = ques;
           });
         });

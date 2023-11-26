@@ -9,7 +9,9 @@
         专家将根据你的现场表现进行评分
       </p>
 
-      <button class="btn btn-info" @click="knowIt">我已知晓 {{ readTime }}s</button>
+      <button class="btn btn-info" @click="knowIt">
+        我已知晓 {{ readTime }}s
+      </button>
     </div>
 
     <div v-if="step == 1">
@@ -18,7 +20,9 @@
       <div style="height: 30px; border-bottom: 1px solid #ccc"></div>
       <div style="height: 30px; border-bottom: 1px solid #ccc"></div>
       <div style="height: 30px; border-bottom: 1px solid #ccc"></div>
-      <div style="height: 30px; border-bottom: 1px solid #ccc; margin-bottom: 20px"></div>
+      <div
+        style="height: 30px; border-bottom: 1px solid #ccc; margin-bottom: 20px"
+      ></div>
       <button class="btn btn-success">倒计时{{ thinkTime }}s</button>
     </div>
 
@@ -81,6 +85,6 @@ export default {
 
 <style scoped>
 .eng {
-  padding-top: 60px;
+  /* padding-top: 60px; */
 }
 </style>

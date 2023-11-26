@@ -2,51 +2,185 @@
   <div id="app">
     <!-- 前测 -->
     <start @finish="saveInfo" v-if="step == 0"></start>
-    <quesTable title="评估0-1" :list="ques01" @finish="saveQues" v-if="step == 1"></quesTable>
-    <quesTable title="评估0-2" :list="ques02" @finish="saveQues" v-if="step == 2"></quesTable>
-    <quesTable title="评估0-3" :list="ques03" @finish="saveQues" v-if="step == 3"></quesTable>
+    <quesTable
+      title="评估0-1"
+      key="评估0-1"
+      :list="ques01"
+      @finish="saveQues"
+      v-if="step == 1"
+    ></quesTable>
+    <quesTable
+      title="评估0-2"
+      key="评估0-2"
+      :list="ques02"
+      @finish="saveQues"
+      v-if="step == 2"
+    ></quesTable>
+    <quesTable
+      title="评估0-3"
+      key="评估0-3"
+      :list="ques03"
+      @finish="saveQues"
+      v-if="step == 3"
+    ></quesTable>
     <!-- 静坐 -->
     <slience @finish="step++" v-if="step == 4"></slience>
-    <quesTable title="评估1-1" :list="SSAI" @finish="saveQues" v-if="step == 5"></quesTable>
-    <quesTable title="评估1-2" :list="FAQS" @finish="saveQues" v-if="step == 6"></quesTable>
+    <quesTable
+      title="评估1-1"
+      key="评估1-1"
+      :list="SSAI"
+      @finish="saveQues"
+      v-if="step == 5"
+    ></quesTable>
+    <quesTable
+      title="评估1-2"
+      key="评估1-2"
+      :list="FAQS"
+      @finish="saveQues"
+      v-if="step == 6"
+    ></quesTable>
     <!-- A -->
     <template v-if="userInfo.group == 1">
       <english @finish="step++" v-if="step == 7"> </english>
-      <quesTable title="A评估2-1" :list="SSAI" @finish="saveQues" v-if="step == 8"></quesTable>
-      <quesTable title="A评估2-2" :list="FAQS" @finish="saveQues" v-if="step == 9"></quesTable>
+      <quesTable
+        title="A评估2-1"
+        key="A评估2-1"
+        :list="SSAI"
+        @finish="saveQues"
+        v-if="step == 8"
+      ></quesTable>
+      <quesTable
+        title="A评估2-2"
+        key="A评估2-2"
+        :list="FAQS"
+        @finish="saveQues"
+        v-if="step == 9"
+      ></quesTable>
       <breath @finish="step++" v-if="step == 10"></breath>
-      <quesTable title="A评估3-1" :list="SSAI" @finish="saveQues" v-if="step == 11"></quesTable>
-      <quesTable title="A评估3-2" :list="FAQS" @finish="saveQuesEnd" v-if="step == 12"></quesTable>
-      <end @finish="init" v-if="step == 13"></end>
+      <quesTable
+        title="A评估3-1"
+        key="A评估3-1"
+        :list="SSAI"
+        @finish="saveQues"
+        v-if="step == 11"
+      ></quesTable>
+      <quesTable
+        title="A评估3-2"
+        key="A评估3-2"
+        :list="FAQS"
+        @finish="saveQues"
+        v-if="step == 12"
+      ></quesTable>
+      <breathVal
+        title="A评估3-3"
+        key="A评估3-3"
+        :list="zhengnian"
+        @finish="saveQuesEnd"
+        v-if="step == 13"
+      >
+      </breathVal>
+      <end @finish="init" v-if="step == 14"></end>
     </template>
     <!-- B -->
     <template v-if="userInfo.group == 2">
       <english @finish="step++" v-if="step == 7"> </english>
 
-      <quesTable title="B评估2-1" :list="SSAI" @finish="saveQues" v-if="step == 8"></quesTable>
-      <quesTable title="B评估2-2" :list="FAQS" @finish="saveQues" v-if="step == 9"></quesTable>
+      <quesTable
+        title="B评估2-1"
+        key="B评估2-1"
+        :list="SSAI"
+        @finish="saveQues"
+        v-if="step == 8"
+      ></quesTable>
+      <quesTable
+        title="B评估2-2"
+        key="B评估2-2"
+        :list="FAQS"
+        @finish="saveQues"
+        v-if="step == 9"
+      ></quesTable>
       <slience @finish="step++" v-if="step == 10"></slience>
 
-      <quesTable title="B评估3-1" :list="SSAI" @finish="saveQues" v-if="step == 11">3-1</quesTable>
-      <quesTable title="B评估3-2" :list="FAQS" @finish="saveQuesEnd" v-if="step == 12">3-2</quesTable>
+      <quesTable
+        title="B评估3-1"
+        key="B评估3-1"
+        :list="SSAI"
+        @finish="saveQues"
+        v-if="step == 11"
+        >3-1</quesTable
+      >
+      <quesTable
+        title="B评估3-2"
+        key="B评估3-2"
+        :list="FAQS"
+        @finish="saveQuesEnd"
+        v-if="step == 12"
+        >3-2</quesTable
+      >
       <end @finish="init" v-if="step == 13"></end>
     </template>
     <!-- c -->
     <template v-if="userInfo.group == 3">
       <breath @finish="step++" v-if="step == 7"> </breath>
-      <quesTable title="C评估2-1" :list="SSAI" @finish="saveQues" v-if="step == 8"></quesTable>
-      <quesTable title="C评估2-2" :list="FAQS" @finish="saveQues" v-if="step == 9"></quesTable>
 
-      <english @finish="step++" v-if="step == 10"> </english>
+      <quesTable
+        title="C评估2-1"
+        key="C评估2-1"
+        :list="SSAI"
+        @finish="saveQues"
+        v-if="step == 8"
+      ></quesTable>
+      <quesTable
+        title="C评估2-2"
+        key="C评估2-2"
+        :list="FAQS"
+        @finish="saveQues"
+        v-if="step == 9"
+      ></quesTable>
+      <breathVal
+        title="C评估2-3"
+        key="C评估2-3"
+        :list="zhengnian"
+        @finish="saveQues"
+        v-if="step == 10"
+      >
+      </breathVal>
+      <english @finish="step++" v-if="step == 11"> </english>
 
-      <quesTable title="C评估3-1" :list="SSAI" @finish="saveQues" v-if="step == 11">3-1</quesTable>
-      <quesTable title="C评估3-2" :list="FAQS" @finish="saveQues" v-if="step == 12">3-2</quesTable>
+      <quesTable
+        title="C评估3-1"
+        key="C评估3-1"
+        :list="SSAI"
+        @finish="saveQues"
+        v-if="step == 12"
+        >3-1</quesTable
+      >
+      <quesTable
+        title="C评估3-2"
+        key="C评估3-2"
+        :list="FAQS"
+        @finish="saveQues"
+        v-if="step == 13"
+        >3-2</quesTable
+      >
 
-      <slience @finish="step++" v-if="step == 13"></slience>
+      <slience @finish="step++" v-if="step == 14"></slience>
 
-      <quesTable title="C评估4-1" :list="SSAI" @finish="saveQues" v-if="step == 14"></quesTable>
-      <quesTable title="C评估4-2" :list="FAQS" @finish="saveQuesEnd" v-if="step == 15"></quesTable>
-      <end @finish="init" v-if="step == 16"></end>
+      <quesTable
+        title="C评估4-1"
+        key="C评估4-1"
+        :list="SSAI"
+        @finish="saveQues"
+        v-if="step == 15"
+      ></quesTable>
+      <quesTable
+        title="C评估4-2"
+        key="C评估4-2"
+        :list="FAQS"
+        @finish="saveQuesEnd"
+        v-if="step == 16"
+      ></quesTable>
+      <end @finish="init" v-if="step == 17"></end>
     </template>
   </div>
 </template>
@@ -58,6 +192,7 @@ import end from "./components/end.vue";
 import english from "./components/english.vue";
 import slience from "./components/slience.vue";
 import breath from "./components/breath.vue";
+import breathVal from "./components/breathVal.vue";
 
 export default {
   name: "App",
@@ -65,7 +200,7 @@ export default {
     return {
       step: 0,
       userInfo: {
-        group: 2,
+        group: 1,
       },
       list: [],
       ques01: {
@@ -171,23 +306,46 @@ export default {
         thead: ["完全没有", "有些", "中等程度", "非常明显"],
 
         list: [
-          { q: "我感到心情平静" },
-          { q: "我感到紧张" },
-          { q: "我感到烦乱" },
-          { q: "我感到轻松" },
-          { q: "我感到心满意足" },
-          { q: "我感到烦恼" },
+          { q: "现在，我感到心情平静" },
+          { q: "现在，我感到紧张" },
+          { q: "现在，我感到烦乱" },
+          { q: "现在，我感到轻松" },
+          { q: "现在，我感到心满意足" },
+          { q: "现在，我感到烦恼" },
         ],
       },
       FAQS: {
         name: "FAQ-S",
         thead: ["完全没有", "有些", "中等程度", "非常明显"],
         list: [
-          { q: "如果我正在和他人交流，我总是会关注下一步要说什么或下一步要做什么" },
+          {
+            q: "如果我正在和他人交流，我总是会关注下一步要说什么或下一步要做什么",
+          },
           { q: "如果我正在和他人交流，我总是会关注我给他人留下的印象" },
           { q: "如果我正在和他人交流，我总是会关注我的焦虑水平" },
-          { q: "如果我正在和他人交流，我总是会关注我的内部的身体反应（如，心律变化）" },
+          {
+            q: "如果我正在和他人交流，我总是会关注我的内部的身体反应（如，心律变化）",
+          },
           { q: "如果我正在和他人交流，我总是会关注过去的社交失败经历" },
+        ],
+      },
+      zhengnian: {
+        name: "正念",
+        list: [
+          {
+            q: "在刚刚的正念练习中，无论体验是令人不快、令人愉快、还是中性的，我都尝试回归到当下的体验。",
+          },
+          {
+            q: "在刚刚的正念练习中，我尝试（将注意力）带回到每一次体验上，无论这个过程多令人不快，也觉得“体验这个过程没关系”",
+          },
+          {
+            q: "在刚刚的正念练习中，我尝试单纯地用身体感受每一种体验（例如喉咙发紧、肚子在动等），而不是迷失在脑海的想法里。",
+          },
+          {
+            q: "在刚刚的正念练习中，我在和某些体验（例如令人不快的想法、情绪和/或身体的感觉）作斗争。",
+          },
+          { q: "在刚刚的正念练习中，我尽力避免或“推开”某些体验。" },
+          { q: "在刚刚的正念练习中，我为了让自己更舒服而尝试改变某些体验。" },
         ],
       },
     };
@@ -199,12 +357,16 @@ export default {
     english,
     slience,
     breath,
+    breathVal,
   },
   created() {
     document.onkeydown = (e) => {
       if (e.keyCode == 68 && e.ctrlKey) {
         e.preventDefault();
         this.step++;
+        if (this.step == 18) {
+          this.step = 0;
+        }
       }
     };
   },
@@ -260,25 +422,31 @@ html {
   padding: 0;
   margin: 0;
 }
-
+:root {
+  background: black;
+  color: #fff;
+}
 #app h1 {
+  margin-top: 260px;
   color: #fff;
   font-size: 40px;
   margin-bottom: 40px;
+  font-weight: bolder;
 }
 #app h3 {
-  font-size: 24px;
+  font-size: 34px;
   margin-bottom: 40px;
 }
 #app h4 {
-  font-size: 24px;
+  font-size: 30px;
   margin-bottom: 10px;
+  font-weight: bolder;
 }
 #app p {
   text-align: center;
-  font-size: 24px;
+  font-size: 28px;
   margin-bottom: 40px;
-  line-height: 40px;
+  line-height: 50px;
 }
 #app .form-item {
   margin-bottom: 10px;
@@ -290,5 +458,12 @@ html {
 #app thead {
   color: #fff !important;
   font-size: 14px !important;
+}
+#app table th {
+  font-size: 20px;
+  line-height: 30px;
+}
+#app .radio {
+  border-color: #747474;
 }
 </style>

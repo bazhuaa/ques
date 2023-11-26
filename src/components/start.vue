@@ -4,7 +4,7 @@
       <h1 style="font-size: 50px">你好，欢迎参加本实验</h1>
       <h3 @click="step++" style="cursor: pointer">（点击进入实验程序）</h3>
     </div>
-    <div v-if="step == 1">
+    <div v-if="step == 1" style="width: 500px;margin: 0 auto;">
       <h3>参与者信息</h3>
       <div style="text-align: left">
         <div class="form-item">
@@ -45,7 +45,9 @@
       <button class="btn btn-info" @click="validate">开始</button>
     </div>
     <div v-if="step == 2">
-      <video></video>
+      <img src="../assets/1.png" alt="" v-if="form.group==1">
+      <img src="../assets/2.png" alt="" v-if="form.group==2">
+      <img src="../assets/3.png" alt="" v-if="form.group==3">
 
       <button class="btn btn-info" @click="nextStep">下一步</button>
     </div>
