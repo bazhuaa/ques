@@ -14,13 +14,7 @@
             <tr>
               <th>
                 <span>{{ outArr[index] || 0 }}%</span>
-                <input
-                  type="range"
-                  min="0"
-                  max="100"
-                  class="range range-xs"
-                  v-model="outArr[index]"
-                />
+                <input type="range" min="0" max="100" class="range range-xs range-accent" v-model="outArr[index]" />
               </th>
             </tr>
           </template>
