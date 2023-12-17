@@ -56,7 +56,7 @@
         @finish="saveQues"
         v-if="step == 9"
       ></quesTable>
-      <breath @finish="step++" v-if="step == 10"></breath>
+      <breath group="A" @finish="step++" v-if="step == 10"></breath>
       <quesTable
         title="A评估3-1"
         key="A评估3-1"
@@ -121,7 +121,7 @@
     </template>
     <!-- c -->
     <template v-if="userInfo.group == 3">
-      <breath @finish="step++" v-if="step == 7"> </breath>
+      <breath group="C" @finish="step++" v-if="step == 7"> </breath>
 
       <quesTable
         title="C评估2-1"
@@ -164,7 +164,7 @@
         >3-2</quesTable
       >
 
-      <slience @finish="step++" v-if="step == 14"></slience>
+      <slience group="C" @finish="step++" v-if="step == 14"></slience>
 
       <quesTable
         title="C评估4-1"
@@ -204,7 +204,7 @@ export default {
       },
       list: [],
       ques01: {
-        name: "SIAS",
+        name: "SIAS", //100
         thead: ["完全不符合", "有点符合", "比较符合", "非常符合", "完全符合"],
         list: [
           { q: "在必须与权威人士（老师、上司）谈话时，我感到紧张" },
@@ -229,7 +229,7 @@ export default {
         ],
       },
       ques02: {
-        name: "FFMQ",
+        name: "FFMQ", //150
         thead: ["一点也不符合", "较少符合", "有些符合", "非常符合", "完全符合"],
 
         list: [
@@ -285,7 +285,7 @@ export default {
         ],
       },
       ques03: {
-        name: "FAQ",
+        name: "FAQ", //50
         thead: ["从不", "偶尔", "有时", "大多数", "总是"],
 
         list: [
@@ -302,6 +302,7 @@ export default {
         ],
       },
       SSAI: {
+        //100
         name: "SSAI",
         thead: ["完全没有", "有些", "中等程度", "非常明显"],
 

@@ -12,6 +12,7 @@
       <button class="btn btn-info" @click="knowIt">
         我已知晓 {{ readTime }}s
       </button>
+      <audio src="english.mp3" autoplay></audio>
     </div>
 
     <div v-if="step == 1">

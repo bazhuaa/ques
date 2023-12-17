@@ -28,7 +28,12 @@
             </tr>
             <tr>
               <th v-for="(head, headIndex) in list.thead">
-                <input v-model="outArr[index]" type="radio" :value="headIndex + 1" class="radio" />
+                <input
+                  v-model="outArr[index]"
+                  type="radio"
+                  :value="headIndex + 1"
+                  class="radio"
+                />
               </th>
 
               <!-- <td><input v-model="outArr[index]" type="radio" value="2" class="radio" /></td>
@@ -40,7 +45,10 @@
         </tbody>
       </table>
     </div>
-    <button class="btn btn-info" type="normal" @click="nextStep">倒计时{{ time }}s</button>
+    <button class="btn btn-info" type="normal" @click="nextStep">
+      倒计时{{ time }}s
+    </button>
+    <audio src="di.mp3" autoplay></audio>
   </div>
 </template>
 
@@ -55,15 +63,16 @@ export default {
     return {
       outArr: [],
       timer: null,
-      time: 30,
+      time: 50,
     };
   },
   created() {
+    //滴一声
     if (this.list.list.length >= 15) {
-      this.time = 60;
+      this.time = 100;
     }
     if (this.list.list.length >= 30) {
-      this.time = 120;
+      this.time = 150;
     }
     // 30秒
     this.timer = setInterval(() => {

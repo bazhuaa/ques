@@ -10,6 +10,7 @@
     >
       导出
     </button>
+    <audio src="end.mp3" autoplay></audio>
   </div>
 </template>
 

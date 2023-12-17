@@ -14,7 +14,13 @@
             <tr>
               <th>
                 <span>{{ outArr[index] || 0 }}%</span>
-                <input type="range" min="0" max="100" class="range range-xs range-accent" v-model="outArr[index]" />
+                <input
+                  type="range"
+                  min="0"
+                  max="100"
+                  class="range range-xs range-accent"
+                  v-model="outArr[index]"
+                />
               </th>
             </tr>
           </template>
@@ -22,6 +28,7 @@
       </table>
     </div>
     <button @click="nextStep" class="btn btn-success">倒计时{{ time }}s</button>
+    <audio src="di.mp3" autoplay></audio>
   </div>
 </template>
 

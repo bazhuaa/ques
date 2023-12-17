@@ -1,35 +1,40 @@
 <template>
   <div class="hello">
-    <h1>静坐时间</h1>
+    <h1>计算任务</h1>
     <p>
       指导语：<br />
-      请您静坐5分钟，测量基础生理状态。<br />
-      请按下holter中间的按钮，并点击下方按钮开始倒计时!
+      请从2024依次减去17，并大声说出你的计算结果，<br />
+      例如2007、1990……<br />
+      如果计算错误，将需要停止，并从头开始计算
     </p>
 
     <button class="btn btn-info" @click="startTime" v-if="!start">
       开始倒计时
     </button>
     <button class="btn btn-success" v-else>倒计时{{ time }}s</button>
-    <audio src="Cslience.mp3" autoplay v-if="group == 'C'"></audio>
-    <audio src="slience.mp3" autoplay v-else></audio>
+    <button class="btn btn-info" v-if="start" @click="restart">重新开始</button>
+    <audio src="compute.mp3" autoplay></audio>
   </div>
 </template>
 
 <script>
 export default {
   name: "quesTable",
-  props: {
-    group: {},
-  },
+  props: {},
   data() {
     this.timer = null;
     return {
-      time: 300, //todo 300
+      time: 180, //todo 300
       start: false,
     };
   },
   methods: {
+    restart() {
+      clearInterval(this.timer);
+      this.timer = null;
+      this.time = 180;
+      this.start = false;
+    },
     nextStep() {
       this.$emit("finish");
     },

@@ -4,12 +4,16 @@
       <h1 style="font-size: 50px">你好，欢迎参加本实验</h1>
       <h3 @click="step++" style="cursor: pointer">（点击进入实验程序）</h3>
     </div>
-    <div v-if="step == 1" style="width: 500px;margin: 0 auto;">
+    <div v-if="step == 1" style="width: 500px; margin: 0 auto">
       <h3>参与者信息</h3>
       <div style="text-align: left">
         <div class="form-item">
           <span>编号：</span>
-          <input v-model="form.No" type="text" class="input input-bordered w-full max-w-xs" />
+          <input
+            v-model="form.No"
+            type="text"
+            class="input input-bordered w-full max-w-xs"
+          />
         </div>
         <div class="form-item">
           <span>性别：</span>
@@ -28,11 +32,19 @@
         </div>
         <div class="form-item">
           <span>年龄：</span>
-          <input v-model="form.age" type="text" class="input input-bordered w-full max-w-xs" />
+          <input
+            v-model="form.age"
+            type="text"
+            class="input input-bordered w-full max-w-xs"
+          />
         </div>
         <div class="form-item">
           <span>英语水平：</span>
-          <input v-model="form.engLevel" type="text" class="input input-bordered w-full max-w-xs" />
+          <input
+            v-model="form.engLevel"
+            type="text"
+            class="input input-bordered w-full max-w-xs"
+          />
         </div>
         <div class="form-item">
           <span>正念水平：</span>
@@ -45,9 +57,12 @@
       <button class="btn btn-info" @click="validate">开始</button>
     </div>
     <div v-if="step == 2">
-      <img src="../assets/1.png" alt="" v-if="form.group==1">
-      <img src="../assets/2.png" alt="" v-if="form.group==2">
-      <img src="../assets/3.png" alt="" v-if="form.group==3">
+      <img src="../assets/1.png" alt="" v-if="form.group == 1" />
+      <img src="../assets/2.png" alt="" v-if="form.group == 2" />
+      <img src="../assets/3.png" alt="" v-if="form.group == 3" />
+      <audio src="A.mp3" autoplay v-if="form.group == 1"></audio>
+      <audio src="B.mp3" autoplay v-if="form.group == 2"></audio>
+      <audio src="C.mp3" autoplay v-if="form.group == 3"></audio>
 
       <button class="btn btn-info" @click="nextStep">下一步</button>
     </div>
