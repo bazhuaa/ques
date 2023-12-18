@@ -7,10 +7,11 @@
       {{ timeBefore == 0 ? "" : "10秒后开始播放正念音频" }}
       {{ timeBefore ? "（" + timeBefore + "s）" : "" }}
     </p>
-    <div>
+    <div style="position: relative; width: 300px; margin: 0 auto">
       <audio
         style="margin: 10px auto; display: block !important"
         height="100"
+        controls
         width="100"
         ref="audio"
         id="audio"
@@ -18,7 +19,14 @@
         <source src="breath.mp3" type="audio/mpeg" />
         <embed height="50" width="100" src="breath.mp3" />
       </audio>
+      <div
+        style="position: absolute; left: 0; top: 0; width: 35px; height: 54px; background-color: #000; z-index: 1"
+      ></div>
+      <div
+        style="position: absolute; right: 0; top: 0; width: 35px; height: 54px; background-color: #000; z-index: 1"
+      ></div>
     </div>
+
     <button @click="nextStep" class="btn btn-success" v-show="end">
       下一步{{ end ? "（" + timeAfter + "s）" : "" }}
     </button>
