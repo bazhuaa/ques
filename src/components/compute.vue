@@ -11,8 +11,10 @@
     <button class="btn btn-info" @click="startTime" v-if="!start">
       开始倒计时
     </button>
-    <button class="btn btn-success" v-else>倒计时{{ time }}s</button>
-    <button class="btn btn-info" v-if="start" @click="restart">重新开始</button>
+    <button class="btn btn-success" v-else style="margin-right: 10px">
+      倒计时{{ time }}s
+    </button>
+    <!-- <button class="btn btn-info" v-if="start" @click="restart">重新开始</button> -->
     <audio src="compute.mp3" autoplay></audio>
   </div>
 </template>
@@ -24,7 +26,7 @@ export default {
   data() {
     this.timer = null;
     return {
-      time: 180, //todo 300
+      time: 180, //todo180
       start: false,
     };
   },

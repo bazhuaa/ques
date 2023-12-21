@@ -45,8 +45,11 @@
         </tbody>
       </table>
     </div>
-    <button class="btn btn-info" type="normal" @click="nextStep">
+    <button class="btn btn-info" type="normal" v-if="!showClose">
       倒计时{{ time }}s
+    </button>
+    <button class="btn btn-info" type="normal" @click="nextStep" v-else>
+      下一步
     </button>
     <audio src="di.mp3" autoplay></audio>
   </div>
@@ -66,6 +69,11 @@ export default {
       time: 50,
     };
   },
+  computed: {
+    showClose() {
+      return ["FAQ", "FFMQ", "SIAS"].includes(this.list.name);
+    },
+  },
   created() {
     //滴一声
     if (this.list.list.length >= 15) {
@@ -73,6 +81,9 @@ export default {
     }
     if (this.list.list.length >= 30) {
       this.time = 150;
+    }
+    if (this.showClose) {
+      return;
     }
     // 30秒
     this.timer = setInterval(() => {

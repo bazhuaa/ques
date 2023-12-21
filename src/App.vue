@@ -41,7 +41,7 @@
     ></quesTable>
     <!-- A -->
     <template v-if="userInfo.group == 1">
-      <english @finish="step++" v-if="step == 7"> </english>
+      <task @finish="step++" v-if="step == 7"> </task>
       <quesTable
         title="A评估2-1"
         key="A评估2-1"
@@ -83,7 +83,7 @@
     </template>
     <!-- B -->
     <template v-if="userInfo.group == 2">
-      <english @finish="step++" v-if="step == 7"> </english>
+      <task @finish="step++" v-if="step == 7"> </task>
 
       <quesTable
         title="B评估2-1"
@@ -145,7 +145,7 @@
         v-if="step == 10"
       >
       </breathVal>
-      <english @finish="step++" v-if="step == 11"> </english>
+      <task @finish="step++" v-if="step == 11"> </task>
 
       <quesTable
         title="C评估3-1"
@@ -190,6 +190,7 @@ import quesTable from "./components/quesTable.vue";
 import start from "./components/start.vue";
 import end from "./components/end.vue";
 import english from "./components/english.vue";
+import task from "./components/task.vue";
 import slience from "./components/slience.vue";
 import breath from "./components/breath.vue";
 import breathVal from "./components/breathVal.vue";
@@ -259,7 +260,7 @@ export default {
           { q: "我会细心聆听各种声音，比如时钟滴答，鸟儿啾啾，行车飕飕" },
           { q: "遇到困境时，我通常能先冷静一下，不会冲动行事" },
           { q: "我很难找到合适的词语来描述我身体的各种感觉" },
-          { q: "我似乎在无意识地自动运转，不太能清晰地意识到自己在做什么处" },
+          { q: "我似乎在无意识地自动运转，不太能清晰地意识到自己在做什么" },
           { q: "当我有令人不安的想法或意象时，我通常能很快地恢复平静" },
           { q: "我会告诉我自己，我不应该有这样或那样的想法" },
           { q: "我能敏锐地觉察各种气味与芳香" },
@@ -359,23 +360,25 @@ export default {
     slience,
     breath,
     breathVal,
+    task,
   },
   created() {
-    document.onkeydown = (e) => {
-      if (e.keyCode == 68 && e.ctrlKey) {
-        e.preventDefault();
-        this.step++;
-        if (this.step == 18) {
-          this.step = 0;
-        }
-      }
-    };
+    // document.onkeydown = (e) => {
+    //   if (e.keyCode == 68 && e.ctrlKey) {
+    //     e.preventDefault();
+    //     this.step++;
+    //     if (this.step == 18) {
+    //       this.step = 0;
+    //     }
+    //   }
+    // };
   },
   methods: {
     init() {
       this.step = 0;
       this.userInfo = {};
       this.list = [];
+      location.reload();
     },
     saveInfo(info) {
       this.userInfo = info;

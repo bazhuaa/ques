@@ -26,7 +26,7 @@ export default {
       let allData = localStorage.getItem("allData");
       if (allData) {
         allData = JSON.parse(allData);
-        console.log(allData);
+        // console.log(allData);
       } else {
         allData = [];
       }

@@ -27,7 +27,7 @@
         </tbody>
       </table>
     </div>
-    <button @click="nextStep" class="btn btn-success">倒计时{{ time }}s</button>
+    <button class="btn btn-success">倒计时{{ time }}s</button>
     <audio src="di.mp3" autoplay></audio>
   </div>
 </template>
@@ -40,7 +40,7 @@ export default {
     title: {},
   },
   data() {
-    return { timer: null, time: 30, outArr: [] };
+    return { timer: null, time: 60, outArr: [] };
   },
   methods: {
     nextStep() {
