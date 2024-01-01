@@ -2,184 +2,52 @@
   <div id="app">
     <!-- 前测 -->
     <start @finish="saveInfo" v-if="step == 0"></start>
-    <quesTable
-      title="评估0-1"
-      key="评估0-1"
-      :list="ques01"
-      @finish="saveQues"
-      v-if="step == 1"
-    ></quesTable>
-    <quesTable
-      title="评估0-2"
-      key="评估0-2"
-      :list="ques02"
-      @finish="saveQues"
-      v-if="step == 2"
-    ></quesTable>
-    <quesTable
-      title="评估0-3"
-      key="评估0-3"
-      :list="ques03"
-      @finish="saveQues"
-      v-if="step == 3"
-    ></quesTable>
+    <quesTable title="评估0-1" key="评估0-1" :list="ques01" @finish="saveQues" v-if="step == 1"></quesTable>
+    <quesTable title="评估0-2" key="评估0-2" :list="ques02" @finish="saveQues" v-if="step == 2"></quesTable>
+    <quesTable title="评估0-3" key="评估0-3" :list="ques03" @finish="saveQues" v-if="step == 3"></quesTable>
     <!-- 静坐 -->
     <slience @finish="step++" v-if="step == 4"></slience>
-    <quesTable
-      title="评估1-1"
-      key="评估1-1"
-      :list="SSAI"
-      @finish="saveQues"
-      v-if="step == 5"
-    ></quesTable>
-    <quesTable
-      title="评估1-2"
-      key="评估1-2"
-      :list="FAQS"
-      @finish="saveQues"
-      v-if="step == 6"
-    ></quesTable>
+    <quesTable title="评估1-1" key="评估1-1" :list="SSAI" @finish="saveQues" v-if="step == 5"></quesTable>
+    <quesTable title="评估1-2" key="评估1-2" :list="FAQS" @finish="saveQues" v-if="step == 6"></quesTable>
     <!-- A -->
     <template v-if="userInfo.group == 1">
       <task @finish="step++" v-if="step == 7"> </task>
-      <quesTable
-        title="A评估2-1"
-        key="A评估2-1"
-        :list="SSAI"
-        @finish="saveQues"
-        v-if="step == 8"
-      ></quesTable>
-      <quesTable
-        title="A评估2-2"
-        key="A评估2-2"
-        :list="FAQS"
-        @finish="saveQues"
-        v-if="step == 9"
-      ></quesTable>
+      <quesTable title="A评估2-1" key="A评估2-1" :list="SSAI2" @finish="saveQues" v-if="step == 8"></quesTable>
+      <quesTable title="A评估2-2" key="A评估2-2" :list="FAQS2" @finish="saveQues" v-if="step == 9"></quesTable>
       <breath group="A" @finish="step++" v-if="step == 10"></breath>
-      <quesTable
-        title="A评估3-1"
-        key="A评估3-1"
-        :list="SSAI"
-        @finish="saveQues"
-        v-if="step == 11"
-      ></quesTable>
-      <quesTable
-        title="A评估3-2"
-        key="A评估3-2"
-        :list="FAQS"
-        @finish="saveQues"
-        v-if="step == 12"
-      ></quesTable>
-      <breathVal
-        title="A评估3-3"
-        key="A评估3-3"
-        :list="zhengnian"
-        @finish="saveQuesEnd"
-        v-if="step == 13"
-      >
-      </breathVal>
+      <quesTable title="A评估3-1" key="A评估3-1" :list="SSAI" @finish="saveQues" v-if="step == 11"></quesTable>
+      <quesTable title="A评估3-2" key="A评估3-2" :list="FAQS" @finish="saveQues" v-if="step == 12"></quesTable>
+      <breathVal title="A评估3-3" key="A评估3-3" :list="zhengnian" @finish="saveQuesEnd" v-if="step == 13"> </breathVal>
       <end @finish="init" v-if="step == 14"></end>
     </template>
     <!-- B -->
     <template v-if="userInfo.group == 2">
       <task @finish="step++" v-if="step == 7"> </task>
 
-      <quesTable
-        title="B评估2-1"
-        key="B评估2-1"
-        :list="SSAI"
-        @finish="saveQues"
-        v-if="step == 8"
-      ></quesTable>
-      <quesTable
-        title="B评估2-2"
-        key="B评估2-2"
-        :list="FAQS"
-        @finish="saveQues"
-        v-if="step == 9"
-      ></quesTable>
+      <quesTable title="B评估2-1" key="B评估2-1" :list="SSAI2" @finish="saveQues" v-if="step == 8"></quesTable>
+      <quesTable title="B评估2-2" key="B评估2-2" :list="FAQS2" @finish="saveQues" v-if="step == 9"></quesTable>
       <slience @finish="step++" v-if="step == 10"></slience>
 
-      <quesTable
-        title="B评估3-1"
-        key="B评估3-1"
-        :list="SSAI"
-        @finish="saveQues"
-        v-if="step == 11"
-        >3-1</quesTable
-      >
-      <quesTable
-        title="B评估3-2"
-        key="B评估3-2"
-        :list="FAQS"
-        @finish="saveQuesEnd"
-        v-if="step == 12"
-        >3-2</quesTable
-      >
+      <quesTable title="B评估3-1" key="B评估3-1" :list="SSAI" @finish="saveQues" v-if="step == 11">3-1</quesTable>
+      <quesTable title="B评估3-2" key="B评估3-2" :list="FAQS" @finish="saveQuesEnd" v-if="step == 12">3-2</quesTable>
       <end @finish="init" v-if="step == 13"></end>
     </template>
     <!-- c -->
     <template v-if="userInfo.group == 3">
       <breath group="C" @finish="step++" v-if="step == 7"> </breath>
 
-      <quesTable
-        title="C评估2-1"
-        key="C评估2-1"
-        :list="SSAI"
-        @finish="saveQues"
-        v-if="step == 8"
-      ></quesTable>
-      <quesTable
-        title="C评估2-2"
-        key="C评估2-2"
-        :list="FAQS"
-        @finish="saveQues"
-        v-if="step == 9"
-      ></quesTable>
-      <breathVal
-        title="C评估2-3"
-        key="C评估2-3"
-        :list="zhengnian"
-        @finish="saveQues"
-        v-if="step == 10"
-      >
-      </breathVal>
+      <quesTable title="C评估2-1" key="C评估2-1" :list="SSAI" @finish="saveQues" v-if="step == 8"></quesTable>
+      <quesTable title="C评估2-2" key="C评估2-2" :list="FAQS" @finish="saveQues" v-if="step == 9"></quesTable>
+      <breathVal title="C评估2-3" key="C评估2-3" :list="zhengnian" @finish="saveQues" v-if="step == 10"> </breathVal>
       <task @finish="step++" v-if="step == 11"> </task>
 
-      <quesTable
-        title="C评估3-1"
-        key="C评估3-1"
-        :list="SSAI"
-        @finish="saveQues"
-        v-if="step == 12"
-        >3-1</quesTable
-      >
-      <quesTable
-        title="C评估3-2"
-        key="C评估3-2"
-        :list="FAQS"
-        @finish="saveQues"
-        v-if="step == 13"
-        >3-2</quesTable
-      >
+      <quesTable title="C评估3-1" key="C评估3-1" :list="SSAI2" @finish="saveQues" v-if="step == 12">3-1</quesTable>
+      <quesTable title="C评估3-2" key="C评估3-2" :list="FAQS2" @finish="saveQues" v-if="step == 13">3-2</quesTable>
 
       <slience group="C" @finish="step++" v-if="step == 14"></slience>
 
-      <quesTable
-        title="C评估4-1"
-        key="C评估4-1"
-        :list="SSAI"
-        @finish="saveQues"
-        v-if="step == 15"
-      ></quesTable>
-      <quesTable
-        title="C评估4-2"
-        key="C评估4-2"
-        :list="FAQS"
-        @finish="saveQuesEnd"
-        v-if="step == 16"
-      ></quesTable>
+      <quesTable title="C评估4-1" key="C评估4-1" :list="SSAI" @finish="saveQues" v-if="step == 15"></quesTable>
+      <quesTable title="C评估4-2" key="C评估4-2" :list="FAQS" @finish="saveQuesEnd" v-if="step == 16"></quesTable>
       <end @finish="init" v-if="step == 17"></end>
     </template>
   </div>
@@ -331,6 +199,36 @@ export default {
           { q: "如果我正在和他人交流，我总是会关注过去的社交失败经历" },
         ],
       },
+      // 任务后的
+      SSAI2: {
+        //100
+        name: "SSAI",
+        thead: ["完全没有", "有些", "中等程度", "非常明显"],
+
+        list: [
+          { q: "面试情境中，我感到心情平静" },
+          { q: "面试情境中，我感到紧张" },
+          { q: "面试情境中，我感到烦乱" },
+          { q: "面试情境中，我感到轻松" },
+          { q: "面试情境中，我感到心满意足" },
+          { q: "面试情境中，我感到烦恼" },
+        ],
+      },
+      FAQS2: {
+        name: "FAQ-S",
+        thead: ["完全没有", "有些", "中等程度", "非常明显"],
+        list: [
+          {
+            q: "面试情境中，我总是会关注下一步要说什么或下一步要做什么",
+          },
+          { q: "面试情境中，我总是会关注我给他人留下的印象" },
+          { q: "面试情境中，我总是会关注我的焦虑水平" },
+          {
+            q: "面试情境中，我总是会关注我的内部的身体反应（如，心律变化）",
+          },
+          { q: "面试情境中，我总是会关注过去的社交失败经历" },
+        ],
+      },
       zhengnian: {
         name: "正念",
         list: [
@@ -363,15 +261,15 @@ export default {
     task,
   },
   created() {
-    // document.onkeydown = (e) => {
-    //   if (e.keyCode == 68 && e.ctrlKey) {
-    //     e.preventDefault();
-    //     this.step++;
-    //     if (this.step == 18) {
-    //       this.step = 0;
-    //     }
-    //   }
-    // };
+    document.onkeydown = (e) => {
+      if (e.keyCode == 68 && e.ctrlKey) {
+        e.preventDefault();
+        this.step++;
+        if (this.step == 18) {
+          this.step = 0;
+        }
+      }
+    };
   },
   methods: {
     init() {

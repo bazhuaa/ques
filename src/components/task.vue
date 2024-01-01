@@ -37,8 +37,18 @@ export default {
       }, 1000);
     },
   },
+  beforeDestroy() {
+    document.onkeydown = null;
+  },
   created() {
     this.startTime();
+    document.onkeydown = (e) => {
+      if (e.keyCode == 68 && e.ctrlKey) {
+        e.preventDefault();
+        this.nextStep();
+        clearInterval(this.timer);
+      }
+    };
   },
 };
 </script>
