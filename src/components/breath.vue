@@ -103,6 +103,7 @@ export default {
   mounted() {
     let audio = document.getElementById("audio");
     audio.addEventListener("ended", () => {
+      //todoended
       this.end = true;
       this.timer = setInterval(() => {
         this.timeAfter--;

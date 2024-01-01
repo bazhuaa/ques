@@ -48,7 +48,7 @@
     <button class="btn btn-info" type="normal" v-if="!showClose">
       倒计时{{ time }}s
     </button>
-    <button class="btn btn-info" type="normal" @click="nextStep" v-else>
+    <button class="btn btn-info" type="normal" @click="nextBtn" v-else>
       下一步
     </button>
     <audio src="di.mp3" autoplay></audio>
@@ -66,7 +66,7 @@ export default {
     return {
       outArr: [],
       timer: null,
-      time: 50,
+      time: 50, //todo50
     };
   },
   computed: {
@@ -77,11 +77,14 @@ export default {
   created() {
     //滴一声
     if (this.list.list.length >= 15) {
-      this.time = 100;
+      this.time = 100; //todo100
     }
     if (this.list.list.length >= 30) {
-      this.time = 150;
+      this.time = 150; //todo150
     }
+    this.outArr = this.list.list.map((i) => {
+      return "";
+    });
     if (this.showClose) {
       return;
     }
@@ -98,17 +101,20 @@ export default {
     this.timer = null;
   },
   methods: {
+    nextBtn() {
+      let noComplete = this.list.list.some((i, index) => {
+        // this.outArr[index] = 1; //todo
+        if (!this.outArr[index]) {
+          return true;
+        }
+      });
+      if (noComplete) {
+        alert("还有未完成的选项");
+        return;
+      }
+      this.nextStep();
+    },
     nextStep() {
-      // let noComplete = this.list.list.some((i, index) => {
-      //   // this.outArr[index] = 1; //todo
-      //   if (!this.outArr[index]) {
-      //     return true;
-      //   }
-      // });
-      // if (noComplete) {
-      //   alert("还有未完成的选项");
-      //   return;
-      // }
       this.$emit("finish", {
         name: this.list.name,
         stage: this.title,

@@ -40,7 +40,7 @@ export default {
     title: {},
   },
   data() {
-    return { timer: null, time: 60, outArr: [] };
+    return { timer: null, time: 60, outArr: [] }; //todo 60
   },
   methods: {
     nextStep() {

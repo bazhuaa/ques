@@ -12,7 +12,7 @@ export default {
   data() {
     this.timer = null;
     return {
-      time: 600, //todo180
+      time: 600, //todo600
       start: false,
     };
   },
