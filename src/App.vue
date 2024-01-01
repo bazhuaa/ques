@@ -261,15 +261,15 @@ export default {
     task,
   },
   created() {
-    document.onkeydown = (e) => {
-      if (e.keyCode == 68 && e.ctrlKey) {
-        e.preventDefault();
-        this.step++;
-        if (this.step == 18) {
-          this.step = 0;
-        }
-      }
-    };
+    // document.onkeydown = (e) => {
+    //   if (e.keyCode == 68 && e.ctrlKey) {
+    //     e.preventDefault();
+    //     this.step++;
+    //     if (this.step == 18) {
+    //       this.step = 0;
+    //     }
+    //   }
+    // };
   },
   methods: {
     init() {
